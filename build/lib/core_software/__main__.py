@@ -1,4 +1,6 @@
 from .funny_bone import FunnyBone
+from .tennis_elbow import TennisElbow
+from random import randint
 
 def play_operation():
 
@@ -8,8 +10,10 @@ def play_operation():
 
      # Select
      print("try to remove the funny bone")
-     funny_bone = FunnyBone(num)
-     funny_bone.remove_item()
+     trigger = randint(0 , 1)
+
+     operations = [FunnyBone, TennisElbow]
+     operations[trigger].remove_item()
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ core_software/__init__.py
 core_software/__main__.py
 core_software/funny_bone.py
 core_software/operation.py
+core_software/tennis_elbow.py
 core_software.egg-info/PKG-INFO
 core_software.egg-info/SOURCES.txt
 core_software.egg-info/dependency_links.txt

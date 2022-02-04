@@ -7,10 +7,11 @@ class Operation(ABC):
     name: str
 
 
-    @abstractmethod
-    def remove_item(self):
-        pass
+    def remove_item(self, number):
+        print(f"Removing {self.name}")
+        self.number = number
+        self.buzzer_rings_when()
 
     @abstractmethod
     def buzzer_rings_when(self):
-        pass
+        raise NotImplementedError
