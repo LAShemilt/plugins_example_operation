@@ -1,4 +1,4 @@
-from funny_bone import FunnyBone
+from .funny_bone import FunnyBone
 
 def play_operation():
 

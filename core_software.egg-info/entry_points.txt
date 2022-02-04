@@ -1,3 +1,3 @@
 [console_scripts]
-play_operation = core_software.__main__:play_operation
+play-operation = core_software.__main__:play_operation
 
