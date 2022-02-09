@@ -1,3 +1,6 @@
 [console_scripts]
-play-operation = core_software.__main__:play_operation
+play-operation = core_software:play_operation
+
+[core_software.operations]
+HammerToes = core_software.operations.hammer_toes:HammerToes
 

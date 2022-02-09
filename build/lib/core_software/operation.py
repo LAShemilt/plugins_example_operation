@@ -6,7 +6,7 @@ class Operation(ABC):
     number: int
     name: str
 
-    @abstractmethod
+
     def remove_item(self, number):
         print(f"Removing {self.name}")
         self.number = number

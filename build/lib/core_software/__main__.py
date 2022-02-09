@@ -9,12 +9,15 @@ def play_operation():
      print("Your number is :", num)
 
      # Select
-     print("try to remove the funny bone")
+
      trigger = randint(0 , 1)
 
-     operations = [FunnyBone, TennisElbow]
-     operations[trigger].remove_item()
-
+     if trigger == 0:
+          print("try to remove the funny bone")
+          FunnyBone().remove_item(num)
+     elif trigger == 1:
+          print("try to remove Tennis Elbow")
+          TennisElbow().remove_item(num)
 
 if __name__ == "__main__":
     play_operation()

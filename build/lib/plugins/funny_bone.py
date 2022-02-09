@@ -1,11 +1,10 @@
-from operation import Operation
+from core_software.operation import Operation
 
 
 class FunnyBone(Operation):
 
     def __init__(self):
         self.name = "Funny Bone"
-
 
     def buzzer_rings_when(self):
         if self.number*2/3 > 5:

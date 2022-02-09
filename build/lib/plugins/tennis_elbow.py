@@ -1,8 +1,8 @@
-from operation import Operation
+from core_software.operation import Operation
 
 class TennisElbow(Operation):
     def __init__(self):
-        self.name="Tennis Elbow"
+        self.name ="Tennis Elbow"
 
     def buzzer_rings_when(self):
         if (self.number - 5) <= 0:
