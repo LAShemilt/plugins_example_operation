@@ -34,6 +34,62 @@ method in the core software using the `importlib` package:
        ]]
 
 ```
-This is used to find all plugins associated with the game.
+This is used to find all operation plugins and then uses them in the game.
 
 ## Writing a plugin
+
+In the plugins package you will see examples of different operations used in the game. These plugins all extend the `Operation` abstract base class in the `core-software` package. As long as the plugins follow this pattern and have these methods, they can be executed in `core-software` without modifications to the code. 
+
+In the plugins package there is a `setup.cfg` file. The setup of `plugins` requires that `core-software` be installed so that we can extend the `Operation` class
+```
+[options]
+include_package_data = True
+install_requires =
+    core-software
+packages = find:
+python_requires =
+    >= 3.9
+```
+In order to have our plugins included in the `core-software` package we have to add them in the setup.cfg under the `core_software.operations` entry point. 
+```
+[options.entry_points]
+core_software.operations =
+       TennisElbow = plugins.tennis_elbow:TennisElbow
+       FunnyBone = plugins.funny_bone:FunnyBone
+
+```
+
+Plugins do not necessarily have to be added to the plugins package. You could develop your plugins as extra "Operation - Extension pack" in a package called `extension-pack`. As long as the extension pack meets the following criteria you will be able to use your plugins with `core-software`:
+* Operation plugins extend the `Operation` abstract base class
+* `core-software` is a dependency in the `setup.cfg` for the `extension_pack` package
+* Operations are added as `core_software.operations` entry-points in the `setup.cfg`
+
+## Installing the game
+Clone the software locally
+Create an environment with either `pip` or `conda`:
+```
+conda create -n operation-game
+conda activate operation-game
+```
+Then install the packages in the environment:
+```
+cd core-software
+pip install .
+cd ../plugins
+pip install .
+```
+
+You can then begin the game by typing in the console:
+```
+play-operation
+```
+You will be prompted to play. Have fun and enjoy:
+```
+play-operation
+The patient needs surgery on their Funny Bone
+Type in a number between 1-10:3
+Your number is : 3
+Removing Funny Bone
+You extracted the funny bone successfully
+
+```
